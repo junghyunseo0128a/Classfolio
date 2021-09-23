@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>test world</title>
+
+    <script type="text/javascript" src="../libs/three.js"></script>
+    <script type="text/javascript" src="../libs/stats.js"></script>
+    <script type="text/javascript" src="../libs/physi.js"></script>
+    <script type="text/javascript" src="../libs/chroma.js"></script>
+    <script type="text/javascript" src="../libs/dat.gui.js"></script>
+    
+    <style>
+        body {
+            /* set margin to 0 and overflow to hidden, to
+             use the complete page */
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="viewport"></div>
+    <!--bukkit-->
+    <script type="text/javascript" src="Packages/bukkit/bukkit.js"></script>
+    <!--world-->
+    <script type="text/javascript" src="Packages/world/world.js"></script>
+    <!--player-->
+    <script type="text/javascript" src="Packages/player/player.js"></script>
+    <!--light-->
+    <script type="text/javascript" src="Packages/light/sun.js"></script>
+    <!--block-->
+    <script type="text/javascript" src="Packages/block/stone.js"></script>
+
+    
+    <script type="text/javascript">
+        var bukkit = new Bukkit();
+        var world = new World();
+        var player = new Player();
+
+        bukkit.setRenderer(world.getWorld(), player.getPlayer());
+        //console.log(world.getWorld()); console.log(player.getPlayer());
+        
+        var sun = new Sun();
+        world.addObject(sun.getSun());  
+
+        var stone = new Stone();
+        stone.setLocation(0, 0, 0);
+        world.addObject(stone.getMesh());
+        //console.log(stone.getStoneMesh())
+
+        bukkit.runRender();
+        bukkit.setRenderFunc(() => {
+            
+        });
+    </script>
+</body>
+
+</html>
