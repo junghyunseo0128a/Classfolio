@@ -4,6 +4,6 @@ class Player {
     }
 
     getCamera() {
-        return this.camera;
+        return this.camera.getObject();
     }
 }

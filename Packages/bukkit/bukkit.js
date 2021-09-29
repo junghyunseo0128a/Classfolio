@@ -9,16 +9,14 @@ class Bukkit {
         this.renderer = renderer;
     }
 
-    setRenderer(world, player) {
-        this.world = world;
-        this.player = player;
+    setRenderer(scene, camera) {
+        this.scene = scene;
+        this.camera = camera;
     }
 
     runRender = () => {
-        if(this.renderFunc) this.renderFunc();
-
         requestAnimationFrame(this.runRender);
-        this.renderer.render(this.world, this.player.camera);   
+        this.renderer.render(this.scene, this.camera);   
     }
 
     setRenderFunc(func) {

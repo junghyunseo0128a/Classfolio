@@ -30,43 +30,31 @@
     <script type="text/javascript" src="Packages/bukkit/bukkit.js"></script>
     <!--world-->
     <script type="text/javascript" src="Packages/world/world.js"></script>
+    <script type="text/javascript" src="Packages/world/scene.js"></script>
+    <script type="text/javascript" src="Packages/world/space.js"></script>
     <!--player-->
     <script type="text/javascript" src="Packages/player/player.js"></script>
     <script type="text/javascript" src="Packages/player/camera.js"></script>
+    <script type="text/javascript" src="Packages/player/controller.js"></script>
     <!--light-->
     <script type="text/javascript" src="Packages/light/sun.js"></script>
     <!--block-->
     <script type="text/javascript" src="Packages/block/staticBlockType.js"></script>
     <script type="text/javascript" src="Packages/block/staticBlock.js"></script>
-    <script type="text/javascript" src="Packages/block/bedrock.js"></script>
-    <script type="text/javascript" src="Packages/block/stone.js"></script>
-    <!--space-->
-    <script type="text/javascript" src="Packages/space/location.js"></script>
-    <script type="text/javascript" src="Packages/space/matrix.js"></script>
-    <!--editor-->
-    <script type="text/javascript" src="Packages/editor/box.js"></script>
+    <script type="text/javascript" src="Packages/block/dynamicBlockType.js"></script>
+    <script type="text/javascript" src="Packages/block/dynamicBlock.js"></script>
+    <script type="text/javascript" src="Packages/block/block.js"></script>
     
     <script type="text/javascript">
         var bukkit = new Bukkit();
-        var world = new World(10, 10, 10);
+        var world = new World();
         var player = new Player();
-
-        bukkit.setRenderer(world.getScene(), player.getCamera());
+        
         //console.log(world.getWorld()); console.log(player.getPlayer());
         
-        var sun = new Sun();
-        world.addLight(sun.get());  
+        var sun = new Sun();   
 
-        var stone = new StaticBlock(0, 0, 0, 1);
-        world.addStaticBlock(stone); 
-
-        var box = new Box();
-        box.generate(10, 10, 1, (location) => {
-            
-            
-        });
-        
-
+        bukkit.setRenderer(world.getScene(), player.getCamera());
         bukkit.runRender();
         bukkit.setRenderFunc(() => {
             world.getScene().simulate(undefined, 2);

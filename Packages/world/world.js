@@ -1,37 +1,17 @@
 class World {
-    // matrix => block
-    constructor(sizeX, sizeY, sizeZ) {
-        Physijs.scripts.worker = '../libs/physijs_worker.js';
-        Physijs.scripts.ammo = '../libs/ammo.js';
+    constructor() {
+        this.scene = new Scene();
+        this.space = new Space();
 
-        var scene = new Physijs.Scene;
-        scene.setGravity(new THREE.Vector3(0, -50, 0));
-
-
-        this.matrix = new Matrix(sizeX, sizeY, sizeZ);
-        this.scene = scene;
     }
 
     getScene() {
-        if (this.scene) return this.scene;
+        return this.scene.getObject();
     }
 
-    addStaticBlock(staticBlock) {
-        const index = staticBlock.getLocation();
-        const data = {
-            block: 
-        }
-        this.matrix.putData(data, index.x, index.y, index.z, () => {
-            this.scene.add(staticBlock.getMesh());
+    addStaticBlock(location, block) {
+        putData(location, block, ()=> {
+            this.scene.add(block.getMesh());
         });
-        console.log(this.getBlock(index.x, index.y, index.z));
-    }
-
-    getBlock(x, y, z) {
-        return this.matrix.getData(x, y, z);
-    }
-
-    addLight(light) {
-        this.scene.add(light);
     }
 }
