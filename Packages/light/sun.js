@@ -5,7 +5,7 @@ class Sun {
         this.sun = light;
     }
 
-    getSun() {
+    get() {
         if(this.sun) return this.sun;
     }
 }

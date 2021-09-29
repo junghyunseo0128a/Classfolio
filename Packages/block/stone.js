@@ -1,15 +1,6 @@
-class Stone {
-    constructor() {
-        var box_material = new THREE.MeshPhongMaterial({ color:0x808080});
-        var box = new Physijs.BoxMesh(new THREE.BoxGeometry(1, 1, 1), box_material, 0);
-        this.box = box;
-    }
-
-    getMesh() {
-        if(this.box) return this.box;
-    }
-
-    setLocation(x, y, z) {
-        this.box.position.set(x, y, z);
+class Stone extends StaticBlock {
+    constructor(x, y, z) {
+        const material = new THREE.MeshPhongMaterial({ color:0x808080});
+        super(x, y, z, material);
     }
 }
