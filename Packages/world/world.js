@@ -18,10 +18,10 @@ class World {
 
     addStaticBlock(staticBlock) {
         const index = staticBlock.getLocation();
-        this.matrix.putData(index.x, index.y, index.z, (e) => {
-            e = {
-                block: staticBlock
-            }
+        const data = {
+            block: 
+        }
+        this.matrix.putData(data, index.x, index.y, index.z, () => {
             this.scene.add(staticBlock.getMesh());
         });
         console.log(this.getBlock(index.x, index.y, index.z));
