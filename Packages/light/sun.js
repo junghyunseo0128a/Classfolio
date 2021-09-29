@@ -1,11 +1,12 @@
 class Sun {
-    constructor() {
+    constructor(x, y, z) {
         var light = new THREE.SpotLight(0xFFFFFF);
-        light.position.set(20, 100, 50);
-        this.sun = light;
+        light.position.set(x, y, z);
+        this.light = light;
+        this.classType = 'light';
     }
 
-    get() {
-        if(this.sun) return this.sun;
+    getLight() {
+        return this.light;
     }
 }

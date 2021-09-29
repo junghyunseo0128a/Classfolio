@@ -9,7 +9,11 @@ class Scene {
         this.scene = scene;
     }
 
-    getObject() {
+    addObject(object) {
+        this.scene.add(object);
+    }
+
+    getScene() {
         return this.scene;
     }
 }

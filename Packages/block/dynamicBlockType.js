@@ -1,2 +1,2 @@
-dynamic_block_type = {
+dynamicBlockType = {
 }

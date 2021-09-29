@@ -1,6 +1,6 @@
 class Player {
     constructor() {
-        this.camera = new Camera();
+        this.camera = new Camera(20, 20, 20);
     }
 
     getCamera() {

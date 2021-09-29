@@ -1,19 +1,37 @@
-dynamic_block_type = {
+staticBlockType = {
     0: {
         name: 'air',  //블럭 이름
         id: 0,  //블럭 id 값
-        color: 0,  //색 hex값
-        opacity: 0,  //0: 완전한투명, 1:완전히붙투명함
-        transparent: true,  //투명 유무
+        mesh: new Physijs.BoxMesh(
+            new THREE.BoxGeometry(1, 1, 1),
+            new THREE.MeshPhongMaterial({
+                color: 0x808080,  //색 hex값
+                opacity: 0,  //0:투명 ~ 1:붙투명
+                transparent: true, //투명 유무
+            }),
+            0)
     }, 1: {
         name: 'stone',  //블럭 이름
         id: 0,  //블럭 id 값
-        color: 0,  //색 hex값
-        opacity: 0,  //0:투명 ~ 1:붙투명
-        transparent: false,  //투명 유무
-        material: 
+        direction: 'east',  //east west south north
+        size: 1,  //블럭 사이즈
+        texture: {
+            top: '../Texture/1.15.2/blocks/stone.png',
+            bottom: '../Texture/1.15.2/blocks/stone.png',
+            front: '../Texture/1.15.2/blocks/stone.png',
+            back: '../Texture/1.15.2/blocks/stone.png',
+            left: '../Texture/1.15.2/blocks/stone.png',
+            right: '../Texture/1.15.2/blocks/stone.png',
+            default: '../Texture/1.15.2/blocks/stone.png',
+        },
+        location: {
+            x: 0,  //기본
+            y: 0,  //기본
+            z: 0,  //기본
+        }
+        
     }, 2: {
 
-    }
-}
+    },
+
 }
