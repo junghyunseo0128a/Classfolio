@@ -29,9 +29,27 @@ staticBlockType = {
             y: 0,  //기본
             z: 0,  //기본
         }
-        
     }, 2: {
 
-    },
+    }, 43: {
+        name: 'double_stone_slab',  //블럭이름
+        id: 43,  //블럭 id 값
+        direction: 'east',  //east west south north
+        size: 1,  //블럭 사이즈
+        texture: {
+            top: '../Texture/1.15.2/blocks/stoneslab_top.png',
+            bottom: '../Texture/1.15.2/blocks/stoneslab_top.png',
+            front: '../Texture/1.15.2/blocks/stoneslab_side.png',
+            back: '../Texture/1.15.2/blocks/stoneslab_side.png',
+            left: '../Texture/1.15.2/blocks/stoneslab_side.png',
+            right: '../Texture/1.15.2/blocks/stoneslab_side.png',
+            default: '../Texture/1.15.2/blocks/stoneslab_top.png',
+        },
+        location: {
+            x: 0,  //기본
+            y: 0,  //기본
+            z: 0,  //기본
+        }
+    }
 
 }

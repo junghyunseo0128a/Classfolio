@@ -20,16 +20,29 @@ class Block {
         this.mesh.position.set(x, y, z);
     }
 
-    getTexture() {
-        return new THREE.ImageUtils.loadTexture(this.type.texture.default);
+    getTexture(path) {
+        //new THREE.ImageUtils.loadTexture(this.type.texture.default)
+        //const loader = new THREE.ImageUtils;
+        /*
+            const textures = [
+            loader.loadTexture(this.type.texture.top),
+            loader.loadTexture(this.type.texture.bottom),
+            loader.loadTexture(this.type.texture.default),
+            loader.loadTexture(this.type.texture.default),
+            loader.loadTexture(this.type.texture.default),
+            loader.loadTexture(this.type.texture.default),
+        ];
+        */
+
+        return new THREE.ImageUtils.loadTexture(this.type.texture.top);
     }
 
     createMesh() {
         const geom = new THREE.BoxGeometry(this.type.size, this.type.size, this.type.size);
-        const material = Physijs.createMaterial(
-            new THREE.MeshPhongMaterial({ map: this.getTexture() })
-        )
-        const mesh = new Physijs.BoxMesh(geom, material, 0);
+
+        const material = new THREE.MeshBasicMaterial({ map: this.getTexture() });
+
+        const mesh = new Physijs.Mesh(geom, material, 0);
         this.mesh = mesh;
     }
 
