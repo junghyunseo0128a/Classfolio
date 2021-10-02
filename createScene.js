@@ -1,14 +1,14 @@
 class CreateScene {
     constructor() {  //initial
-        const c = document.getElementById("renderCanvas");  //canvas
-        const e = new BABYLON.Engine(c, true);  //engine
-        var s = new BABYLON.Scene(e);  //scene
+        const cv = document.getElementById("renderCanvas");  //canvas
+        const eg = new BABYLON.Engine(cv, true);  //engine
+        var s = new BABYLON.Scene(eg);  //scene
 
-        window.addEventListener('resize', () => e.resize());
-        e.runRenderLoop(() => this.s.render());
+        window.addEventListener('resize', () => eg.resize());
+        eg.runRenderLoop(() => this.s.render());
 
-        this.c = c;
-        this.e = e;
+        this.cv = cv;
+        this.eg = eg;
         this.s = s;
     }
 
@@ -20,20 +20,22 @@ class CreateScene {
                 "box.babylon"
             );
 
-        const camera =
+        const cmr =
             new BABYLON.ArcRotateCamera(
                 "camera",
                 -Math.PI / 2,
                 Math.PI / 2.5,
                 15,
                 new BABYLON.Vector3(0, 0, 0)
-            );
-        camera.attachControl(this.c, true);
+            );  //camera
+        cmr.attachControl(this.cv, true);
         const light =
             new BABYLON.HemisphericLight(
                 "light",
                 new BABYLON.Vector3(1, 1, 0)
             );
+
+        this.cmr = cmr;
     }
 }
 
