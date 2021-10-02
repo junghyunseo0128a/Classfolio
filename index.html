@@ -3,36 +3,31 @@
 <html>
 
 <head>
-    <title>Example 01.01 - Basic skeleton</title>
-    <script type="text/javascript" src="../libs/three.js"></script>
-    <script type="text/javascript" src="../libs/stats.js"></script>
-    <script type="text/javascript" src="../libs/physi.js"></script>
-    <script type="text/javascript" src="../libs/chroma.js"></script>
-    <script type="text/javascript" src="../libs/dat.gui.js"></script>
+    <title>classfolio</title>
     <style>
+        html,
         body {
-            /* set margin to 0 and overflow to hidden, to
-             use the complete page */
-            margin: 0;
             overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #renderCanvas {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
         }
     </style>
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
 </head>
+
 <body>
-
-<!-- Div which will hold the Output -->
-<div id="WebGL-output">
-</div>
-
-<!-- Javascript code that runs our Three.js examples -->
-<script type="text/javascript">
-
-    // once everything is loaded, we run our Three.js stuff.
-    function init() {
-        // here we'll put the Three.js stuff
-    }
-    window.onload = init
-
-</script>
+    <canvas id="renderCanvas" touch-action="none"></canvas>
+    <script src="/createScene.js"></script>
 </body>
+
 </html>
