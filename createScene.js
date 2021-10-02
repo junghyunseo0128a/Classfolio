@@ -6,6 +6,10 @@ class CreateScene {
 
         window.addEventListener('resize', () => eg.resize());
         eg.runRenderLoop(() => this.s.render());
+        
+        var gravityVector = new BABYLON.Vector3(0, -9.81, 0);
+        var physicsPlugin = new BABYLON.CannonJSPlugin();
+        s.enablePhysics(gravityVector, physicsPlugin);
 
         this.cv = cv;
         this.eg = eg;
@@ -13,14 +17,16 @@ class CreateScene {
     }
 
     run() {
+        /*
         BABYLON.SceneLoader.
             ImportMeshAsync(
                 "",
                 "https://assets.babylonjs.com/meshes/",
                 "box.babylon"
             );
+            */
 
-        const cmr =
+        const camera =
             new BABYLON.ArcRotateCamera(
                 "camera",
                 -Math.PI / 2,
@@ -28,16 +34,21 @@ class CreateScene {
                 15,
                 new BABYLON.Vector3(0, 0, 0)
             );  //camera
-        cmr.attachControl(this.cv, true);
+        camera.attachControl(this.cv, true);
+        camera.setTarget(BABYLON.Vector3.Zero());
         const light =
             new BABYLON.HemisphericLight(
                 "light",
                 new BABYLON.Vector3(1, 1, 0)
             );
 
-        this.cmr = cmr;
+        this.cmr = camera;
     }
 }
 
 var createScene = new CreateScene();
 createScene.run();
+
+new flat_stone_floor().generate();
+
+new Block(0, 3, 0, 'bookshelf');
