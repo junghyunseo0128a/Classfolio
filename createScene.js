@@ -6,10 +6,6 @@ class CreateScene {
 
         window.addEventListener('resize', () => eg.resize());
         eg.runRenderLoop(() => this.s.render());
-        
-        var gravityVector = new BABYLON.Vector3(0, -9.81, 0);
-        var physicsPlugin = new BABYLON.CannonJSPlugin();
-        s.enablePhysics(gravityVector, physicsPlugin);
 
         this.cv = cv;
         this.eg = eg;
@@ -48,7 +44,3 @@ class CreateScene {
 
 var createScene = new CreateScene();
 createScene.run();
-
-new flat_stone_floor().generate();
-
-new Block(0, 3, 0, 'bookshelf');
